@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.23.90
-Release  : 1
+Release  : 2
 URL      : http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/3.23/geocode-glib-3.23.90.tar.xz
 Source0  : http://ftp.gnome.org/pub/GNOME/sources/geocode-glib/3.23/geocode-glib-3.23.90.tar.xz
 Summary  : Helper library for geocoding services
