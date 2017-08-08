@@ -1,6 +1,15 @@
+commit aa513ab2a33039382023f3dbffea2604ad5af0f3
+Author: Jonas Danielsson <jonas@threetimestwo.org>
+Date:   Tue Aug 8 20:18:07 2017 +0200
+
+    Release 3.24.0
+
+M	NEWS
+M	configure.ac
+
 commit 537eb30d0479588053cde1336e1a93c1d66b7493
 Author: Jonas Danielsson <jonas@threetimestwo.org>
-Date:   Mon Feb 6 19:06:53 2017 +0100
+Date:	Mon Feb 6 19:06:53 2017 +0100
 
     Release 3.23.90
 
