@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.24.0
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz
 Summary  : Helper library for geocoding services
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502221058
+export SOURCE_DATE_EPOCH=1503072885
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -87,7 +87,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1502221058
+export SOURCE_DATE_EPOCH=1503072885
 rm -rf %{buildroot}
 %make_install
 
