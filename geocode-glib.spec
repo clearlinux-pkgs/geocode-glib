@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.24.0
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz
 Summary  : Helper library for geocoding services
