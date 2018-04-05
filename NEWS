@@ -1,9 +1,20 @@
-3.24.0
--------
+3.25.4.1
+--------
 
-A cosmetic release to make sure we have a nice branch point for the
-3.24 stable branch.
+Brown paperbag release to add news entry for 3.25.4.
 
+3.25.4
+------
+
+- Port to meson build system.
+- Drop autotools.
+- Provide a configure script for backwards compatibility.
+- Fix a warning from gcc 7.1.1.
+
+All contributors to this release:
+
+Emmanuele Bassi <ebassi@gnome.org>
+Zeeshan Ali <zeenix@gmail.com>
 
 3.23.90
 -------

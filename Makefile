@@ -1,5 +1,5 @@
 PKG_NAME := geocode-glib
-URL := https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz
-
+URL = https://download.gnome.org/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz
+ARCHIVES = 
 
 include ../common/Makefile.common
