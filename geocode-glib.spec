@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.25.4.1
-Release  : 7
+Release  : 8
 URL      : https://download.gnome.org/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz
 Summary  : No detailed summary available
