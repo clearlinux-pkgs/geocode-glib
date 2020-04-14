@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.26.2
-Release  : 12
+Release  : 13
 URL      : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 Summary  : No detailed summary available
@@ -12,7 +12,6 @@ Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.0
 Requires: geocode-glib-data = %{version}-%{release}
 Requires: geocode-glib-lib = %{version}-%{release}
-Requires: geocode-glib-libexec = %{version}-%{release}
 Requires: geocode-glib-license = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
@@ -60,20 +59,10 @@ doc components for the geocode-glib package.
 Summary: lib components for the geocode-glib package.
 Group: Libraries
 Requires: geocode-glib-data = %{version}-%{release}
-Requires: geocode-glib-libexec = %{version}-%{release}
 Requires: geocode-glib-license = %{version}-%{release}
 
 %description lib
 lib components for the geocode-glib package.
-
-
-%package libexec
-Summary: libexec components for the geocode-glib package.
-Group: Default
-Requires: geocode-glib-license = %{version}-%{release}
-
-%description libexec
-libexec components for the geocode-glib package.
 
 
 %package license
@@ -82,6 +71,15 @@ Group: Default
 
 %description license
 license components for the geocode-glib package.
+
+
+%package tests
+Summary: tests components for the geocode-glib package.
+Group: Default
+Requires: geocode-glib = %{version}-%{release}
+
+%description tests
+tests components for the geocode-glib package.
 
 
 %prep
@@ -93,14 +91,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584481888
+export SOURCE_DATE_EPOCH=1586875897
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
@@ -184,7 +182,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib64/libgeocode-glib.so.0
 /usr/lib64/libgeocode-glib.so.0.0.0
 
-%files libexec
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/geocode-glib/5fb362ef1680e635fe5fb212b55eef4db9ead48f
+/usr/share/package-licenses/geocode-glib/b5707bf785ec22684c9374d06eaa874ffbf0d2b8
+
+%files tests
 %defattr(-,root,root,-)
 /usr/libexec/installed-tests/geocode-glib/geo-uri
 /usr/libexec/installed-tests/geocode-glib/geocode-glib
@@ -205,8 +208,3 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/libexec/installed-tests/geocode-glib/search.json
 /usr/libexec/installed-tests/geocode-glib/search_lat_long.json
 /usr/libexec/installed-tests/geocode-glib/xep.json
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/geocode-glib/5fb362ef1680e635fe5fb212b55eef4db9ead48f
-/usr/share/package-licenses/geocode-glib/b5707bf785ec22684c9374d06eaa874ffbf0d2b8
