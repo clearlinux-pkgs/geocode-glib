@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.26.4
-Release  : 19
+Release  : 20
 URL      : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz
 Summary  : No detailed summary available
