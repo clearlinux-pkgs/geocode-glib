@@ -4,7 +4,7 @@
 #
 Name     : geocode-glib
 Version  : 3.26.4
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz
 Source0  : https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz
 Summary  : No detailed summary available
@@ -18,6 +18,7 @@ BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
 BuildRequires : docbook-xml
 BuildRequires : gtk-doc
+BuildRequires : libsoup-dev
 BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(libsoup-2.4)
 
@@ -102,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663961604
+export SOURCE_DATE_EPOCH=1663961771
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -111,7 +112,7 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dsoup2=false  builddir
 ninja -v -C builddir
 
 %check
@@ -132,7 +133,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files data
 %defattr(-,root,root,-)
-/usr/lib64/girepository-1.0/GeocodeGlib-1.0.typelib
+/usr/lib64/girepository-1.0/GeocodeGlib-2.0.typelib
 /usr/share/gir-1.0/*.gir
 /usr/share/icons/hicolor/scalable/places/poi-airport.svg
 /usr/share/icons/hicolor/scalable/places/poi-bar.svg
@@ -149,55 +150,55 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-backend.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-bounding-box.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-enum-types.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-error.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-forward.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-glib.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-location.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-mock-backend.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-nominatim.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-place.h
-/usr/include/geocode-glib-1.0/geocode-glib/geocode-reverse.h
-/usr/lib64/libgeocode-glib.so
-/usr/lib64/pkgconfig/geocode-glib-1.0.pc
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-backend.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-bounding-box.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-enum-types.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-error.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-forward.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-glib.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-location.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-mock-backend.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-nominatim.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-place.h
+/usr/include/geocode-glib-2.0/geocode-glib/geocode-reverse.h
+/usr/lib64/libgeocode-glib-2.so
+/usr/lib64/pkgconfig/geocode-glib-2.0.pc
 
 %files doc
 %defattr(0644,root,root,0755)
-/usr/share/gtk-doc/html/geocode-glib/GeocodeBackend.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodeBoundingBox.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodeForward.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodeLocation.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodeNominatim.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodePlace.html
-/usr/share/gtk-doc/html/geocode-glib/GeocodeReverse.html
-/usr/share/gtk-doc/html/geocode-glib/annotation-glossary.html
-/usr/share/gtk-doc/html/geocode-glib/api-index-full.html
-/usr/share/gtk-doc/html/geocode-glib/ch01.html
-/usr/share/gtk-doc/html/geocode-glib/geocode-glib-geocode-error.html
-/usr/share/gtk-doc/html/geocode-glib/geocode-glib-geocode-mock-backend.html
-/usr/share/gtk-doc/html/geocode-glib/geocode-glib.devhelp2
-/usr/share/gtk-doc/html/geocode-glib/home.png
-/usr/share/gtk-doc/html/geocode-glib/index.html
-/usr/share/gtk-doc/html/geocode-glib/left-insensitive.png
-/usr/share/gtk-doc/html/geocode-glib/left.png
-/usr/share/gtk-doc/html/geocode-glib/right-insensitive.png
-/usr/share/gtk-doc/html/geocode-glib/right.png
-/usr/share/gtk-doc/html/geocode-glib/style.css
-/usr/share/gtk-doc/html/geocode-glib/up-insensitive.png
-/usr/share/gtk-doc/html/geocode-glib/up.png
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeBackend.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeBoundingBox.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeForward.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeLocation.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeNominatim.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodePlace.html
+/usr/share/gtk-doc/html/geocode-glib-2/GeocodeReverse.html
+/usr/share/gtk-doc/html/geocode-glib-2/annotation-glossary.html
+/usr/share/gtk-doc/html/geocode-glib-2/api-index-full.html
+/usr/share/gtk-doc/html/geocode-glib-2/ch01.html
+/usr/share/gtk-doc/html/geocode-glib-2/geocode-glib-2-geocode-error.html
+/usr/share/gtk-doc/html/geocode-glib-2/geocode-glib-2-geocode-mock-backend.html
+/usr/share/gtk-doc/html/geocode-glib-2/geocode-glib-2.devhelp2
+/usr/share/gtk-doc/html/geocode-glib-2/home.png
+/usr/share/gtk-doc/html/geocode-glib-2/index.html
+/usr/share/gtk-doc/html/geocode-glib-2/left-insensitive.png
+/usr/share/gtk-doc/html/geocode-glib-2/left.png
+/usr/share/gtk-doc/html/geocode-glib-2/right-insensitive.png
+/usr/share/gtk-doc/html/geocode-glib-2/right.png
+/usr/share/gtk-doc/html/geocode-glib-2/style.css
+/usr/share/gtk-doc/html/geocode-glib-2/up-insensitive.png
+/usr/share/gtk-doc/html/geocode-glib-2/up.png
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libgeocode-glib.so.0
-/usr/lib64/libgeocode-glib.so.0.0.0
+/usr/lib64/libgeocode-glib-2.so.0
+/usr/lib64/libgeocode-glib-2.so.0.0.0
 
 %files libexec
 %defattr(-,root,root,-)
-/usr/libexec/geocode-glib/geo-uri
-/usr/libexec/geocode-glib/geocode-glib
-/usr/libexec/geocode-glib/mock-backend
+/usr/libexec/geocode-glib-2/geo-uri
+/usr/libexec/geocode-glib-2/geocode-glib
+/usr/libexec/geocode-glib-2/mock-backend
 
 %files license
 %defattr(0644,root,root,0755)
@@ -206,24 +207,24 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files tests
 %defattr(-,root,root,-)
-/usr/share/installed-tests/geocode-glib/geo-uri.test
-/usr/share/installed-tests/geocode-glib/geocode-glib.test
-/usr/share/installed-tests/geocode-glib/locale_format.json
-/usr/share/installed-tests/geocode-glib/locale_name.json
-/usr/share/installed-tests/geocode-glib/locale_name2.json
-/usr/share/installed-tests/geocode-glib/mock-backend.test
-/usr/share/installed-tests/geocode-glib/nominatim-area.json
-/usr/share/installed-tests/geocode-glib/nominatim-data-type-change.json
-/usr/share/installed-tests/geocode-glib/nominatim-no-results.json
-/usr/share/installed-tests/geocode-glib/nominatim-place_rank.json
-/usr/share/installed-tests/geocode-glib/nominatim-rio.json
-/usr/share/installed-tests/geocode-glib/osm_type0.json
-/usr/share/installed-tests/geocode-glib/osm_type1.json
-/usr/share/installed-tests/geocode-glib/osm_type2.json
-/usr/share/installed-tests/geocode-glib/pi.json
-/usr/share/installed-tests/geocode-glib/pub.json
-/usr/share/installed-tests/geocode-glib/rev.json
-/usr/share/installed-tests/geocode-glib/rev_fail.json
-/usr/share/installed-tests/geocode-glib/search.json
-/usr/share/installed-tests/geocode-glib/search_lat_long.json
-/usr/share/installed-tests/geocode-glib/xep.json
+/usr/share/installed-tests/geocode-glib-2/geo-uri.test
+/usr/share/installed-tests/geocode-glib-2/geocode-glib.test
+/usr/share/installed-tests/geocode-glib-2/locale_format.json
+/usr/share/installed-tests/geocode-glib-2/locale_name.json
+/usr/share/installed-tests/geocode-glib-2/locale_name2.json
+/usr/share/installed-tests/geocode-glib-2/mock-backend.test
+/usr/share/installed-tests/geocode-glib-2/nominatim-area.json
+/usr/share/installed-tests/geocode-glib-2/nominatim-data-type-change.json
+/usr/share/installed-tests/geocode-glib-2/nominatim-no-results.json
+/usr/share/installed-tests/geocode-glib-2/nominatim-place_rank.json
+/usr/share/installed-tests/geocode-glib-2/nominatim-rio.json
+/usr/share/installed-tests/geocode-glib-2/osm_type0.json
+/usr/share/installed-tests/geocode-glib-2/osm_type1.json
+/usr/share/installed-tests/geocode-glib-2/osm_type2.json
+/usr/share/installed-tests/geocode-glib-2/pi.json
+/usr/share/installed-tests/geocode-glib-2/pub.json
+/usr/share/installed-tests/geocode-glib-2/rev.json
+/usr/share/installed-tests/geocode-glib-2/rev_fail.json
+/usr/share/installed-tests/geocode-glib-2/search.json
+/usr/share/installed-tests/geocode-glib-2/search_lat_long.json
+/usr/share/installed-tests/geocode-glib-2/xep.json
